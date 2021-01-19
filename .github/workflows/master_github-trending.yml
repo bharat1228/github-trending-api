@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@master
@@ -18,7 +18,7 @@ jobs:
     - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
-        node-version: '10.14.1'
+        node-version: '10.x'
 
     - name: npm install, build, and test
       run: |
@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'github-trending'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_947cfce6df164c35ab3259900405e3d6 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_c395196c09d445148e01960b48169f63 }}
         package: .
